@@ -69,6 +69,76 @@
         </tbody>
         </tbody>
       </table>
+      <div id="contributions (WIP)"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", run);
+
+  async function getClanDetails(clanName) {
+    const url = `${apiUrl}/api/clan/${clanTag}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (!response.ok || data.status !== 'ok') {
+        throw new Error(`Failed to fetch details for clan '${clanName}'`);
+      }
+      return data.data;
+    } catch (error) {
+      throw new Error(`Error in getClanDetails: ${error.message}`);
+    }
+  }
+
+  async function displayContributions(contributions) {
+    const contributionsContainer = document.getElementById('contributions');
+    contributionsContainer.innerHTML = ''; // Clear previous contributions
+
+    const header = document.createElement('h2');
+    header.textContent = 'Contributions';
+    contributionsContainer.appendChild(header);
+
+    const ul = document.createElement('ul');
+    contributionsContainer.appendChild(ul);
+
+    for (const contribution of contributions) {
+      const { UserID, Points } = contribution;
+
+      // Fetch user information from Roblox API
+      const userData = await getUserData(UserID);
+      if (!userData) continue;
+
+      const { username } = userData;
+
+      // Create list item to display user's name and points
+      const li = document.createElement('li');
+      li.textContent = `${username} - ${Points} points`;
+      ul.appendChild(li);
+    }
+  }
+
+  async function getUserData(userId) {
+    const url = `https://users.roblox.com/v1/users/${userId}`;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) return null;
+
+      const userData = await response.json();
+      const username = userData.name;
+      return { username };
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      return null;
+    }
+  }
+
+  async function run() {
+    getClanDetails(clanTag).then(async clanDetails => {
+      // Display contributions
+      await displayContributions(clanDetails.Battles.GoalBattleTwo.PointContributions);
+    }).catch(error => {
+      console.error('Error:', error.message);
+    });
+  }
+</script>
+
     </div>
     <script>
       const clanTag = "ooza" // your clan tag
@@ -169,7 +239,7 @@
                 "34": "Unknown(updating)",
                 "38": "Break Comets in Best Area",
                 "40": "Unknown(updating)",
-                "44": "Break Lucky Block Events in Best Area",
+                "44": "Break Lucky Blocks in Best Area",
                 "21": "Break Breakables in Best Area",
                 "39": "Break Mini-Chests in Best Area",
                 "7": "Earn Diamonds",
