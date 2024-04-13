@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="PS99 Clan Quests">
@@ -16,278 +16,167 @@
     <meta property="twitter:description" content="By Dalk21">
     <title>ooza Clan Battle | 1.0.1</title>
     <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1 id="title">Clan Quest Tracker</h1> Powered by the <a href="https://docs.biggamesapi.io/" style="color:white">Pet Simulator 99 API</a>
-      <br>
-      <a id="updated">Last updated not now</a>
-      <br>
-      <a id="clan">Clan Rank: #99 | Clan Points: 99</a>
-      <br>
-      <table id="overlayzero">
+</head>
+<body>
+<div class="container">
+    <h1 id="title">Clan Quest Tracker</h1> Powered by the <a href="https://docs.biggamesapi.io/" style="color:white">Pet Simulator 99 API</a>
+    <br>
+    <a id="updated">Last updated not now</a>
+    <br>
+    <a id="clan">Clan Rank: #99 | Clan Points: 99</a>
+    <br>
+    <table id="overlayzero">
         <thead>
-          <tr>
+        <tr>
             <th>Quest Challenge</th>
             <th>Progress</th>
             <th>Stars</th>
-          </tr>
+        </tr>
         </thead>
         <tbody id="questsData">
-          <tr>
+        <tr>
             <td id="qc0">Fix 99 Bugs</td>
             <td id="p0">0/99</td>
             <td>
-              <span id="s0">100</span>
-              <img src="star.png" alt="Star" class="star-icon">
+                <span id="s0">100</span>
+                <img src="star.png" alt="Star" class="star-icon">
             </td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td id="qc1">Fix 99 Bugs</td>
             <td id="p1">0/99</td>
             <td>
-              <span id="s1">200</span>
-              <img src="star.png" alt="Star" class="star-icon">
+                <span id="s1">200</span>
+                <img src="star.png" alt="Star" class="star-icon">
             </td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td id="qc2">Fix 99 Bugs</td>
             <td id="p2">0/99</td>
             <td>
-              <span id="s2">300</span>
-              <img src="star.png" alt="Star" class="star-icon">
+                <span id="s2">300</span>
+                <img src="star.png" alt="Star" class="star-icon">
             </td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td id="qc3">Fix 99 Bugs</td>
             <td id="p3">0/99</td>
             <td>
-              <span id="s3">400</span>
-              <img src="star.png" alt="Star" class="star-icon">
+                <span id="s3">400</span>
+                <img src="star.png" alt="Star" class="star-icon">
             </td>
-          </tr>
+        </tr>
         </tbody>
-        </tbody>
-      </table>
-      <div id="contributions"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", run);
-
-  async function getClanDetails(clanName) {
-    const url = `${apiUrl}/api/clan/${clanTag}`;
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      if (!response.ok || data.status !== 'ok') {
-        throw new Error(`Failed to fetch details for clan '${clanName}'`);
-      }
-      return data.data;
-    } catch (error) {
-      throw new Error(`Error in getClanDetails: ${error.message}`);
-    }
-  }
-
-  async function displayContributions(contributions) {
-    const contributionsContainer = document.getElementById('contributions');
-    contributionsContainer.innerHTML = ''; // Clear previous contributions
-
-    const header = document.createElement('h2');
-    header.textContent = 'Contributions';
-    contributionsContainer.appendChild(header);
-
-    const ul = document.createElement('ul');
-    contributionsContainer.appendChild(ul);
-
-    for (const contribution of contributions) {
-      const { UserID, Points } = contribution;
-
-      // Fetch user information from Roblox API
-      const userData = await getUserData(UserID);
-      if (!userData) continue;
-
-      const { username } = userData;
-
-      // Create list item to display user's name and points
-      const li = document.createElement('li');
-      li.textContent = `${username} - ${Points} points`;
-      ul.appendChild(li);
-    }
-  }
-
-  async function getUserData(userId) {
-    const url = `https://users.roblox.com/v1/users/${userId}`;
-    try {
-      const response = await fetch(url);
-      if (!response.ok) return null;
-
-      const userData = await response.json();
-      const username = userData.name;
-      return { username };
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      return null;
-    }
-  }
-
-  async function run() {
-    getClanDetails(clanTag).then(async clanDetails => {
-      // Display contributions
-      await displayContributions(clanDetails.Battles.GoalBattleTwo.PointContributions);
-    }).catch(error => {
-      console.error('Error:', error.message);
-    });
-  }
-</script>
-
-    </div>
+    </table>
     <script>
-      const clanTag = "ooza" // your clan tag
-      const apiUrl = "https://biggamesapi.io" // your API url
-      document.addEventListener("DOMContentLoaded", run);
-      let whatOverlay = 0
+        const clanTag = "ooza" // your clan tag
+        const apiUrl = "https://biggamesapi.io" // your API url
+        document.addEventListener("DOMContentLoaded", run);
+        let whatOverlay = 0
 
-      setInterval(() => {
-        run()
-      }, 60000);
+        setInterval(() => {
+            run()
+        }, 60000);
 
-      function changeOverlay() {
-        if (whatOverlay == 0) {
-          whatOverlay = 1
-          document.getElementById('overlayzero').hidden = true
-          document.getElementById('overlayone').hidden = false
-          document.getElementById('title').innerText = "Clan Points Leaderboard"
-        } else {
-          whatOverlay = 0
-          document.getElementById('overlayzero').hidden = false
-          document.getElementById('overlayone').hidden = true
-          document.getElementById('title').innerText = "Clan Quests Overlay"
-        }
-        run()
-      }
-
-      async function getClanDetails(clanName) {
-        const url = `${apiUrl}/api/clan/${clanTag}`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          if (!response.ok || data.status !== 'ok') {
-            throw new Error(`Failed to fetch details for clan '${clanName}'`);
-          }
-          return data.data;
-        } catch (error) {
-          throw new Error(`Error in getClanDetails: ${error.message}`);
-        }
-      }
-
-      async function getChallenges() {
-        const url = `${apiUrl}/challenges.json`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          if (!response.ok || data.status !== 'ok') {
-            throw new Error('Failed to fetch challlenges');
-          }
-          return data.data;
-        } catch (error) {
-          throw new Error(`Error in getChallenges: ${error.message}`);
-        }
-      }
-
-      async function getClans(page, pageSize, sort, sortOrder) {
-        const url = `${apiUrl}/api/clans`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          if (!response.ok || data.status !== 'ok') {
-            throw new Error('Failed to fetch clans');
-          }
-          return data.data;
-        } catch (error) {
-          throw new Error(`Error in getClans: ${error.message}`);
-        }
-      }
-
-      async function getUsernameFromId(id) {
-        const url = `${apiUrl}/api/ids?id=${id}`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          throw new Error(`Error in getUsernameFromId: ${error.message}`);
-        }
-      }
-
-      let clanRank = null
-
-      async function run() {
-        if (whatOverlay == 0) {
-          getClans().then(clans => {
-            clans.sort((a, b) => b.Points - a.Points);
-            // Find the position of the clan
-            const position = clans.findIndex(clan => clan.Name === clanTag);
-            if (position !== -1) {
-              clanRank = position + 1
-            } else {}
-          })
-
-          getClanDetails(clanTag).then(async clanDetails => {
-            async function getQuestNameFromType(type) {
-              const questTypes = {
-                "29": "Jungle Obby Completions",
-                "46": "Catch Fish in Advanced Fishing",
-                "34": "Unknown(updating)",
-                "38": "Break Comets in Best Area",
-                "40": "Unknown(updating)",
-                "44": "Break Lucky Blocks in Best Area",
-                "21": "Break Breakables in Best Area",
-                "39": "Break Mini-Chests in Best Area",
-                "7": "Earn Diamonds",
-                "37": "Break Coin Jars in Best Area",
-                "43": "Unknown(updating)",
-                "42": "Unknown(updating)",
-                "9": "Break Diamond Breakables",
-                "41": "Unknown(updating)",
-                "20": "Hatch Best Eggs",
-                "12": "Craft Tier 3 Potions",
-                "45": "Find Chests in Advanced Digsite",
-                "73": "Break Breakables in the Treasure Hideout"
-              };
-
-              try {
-                if (questTypes[type]) {
-                  return questTypes[type];
-                } else {
-                  return "Unknown Quest";
-                }
-              } catch {
-                return "Unknown Quest";
-              }
+        function changeOverlay() {
+            if (whatOverlay == 0) {
+                whatOverlay = 1
+                document.getElementById('overlayzero').hidden = true
+                document.getElementById('overlayone').hidden = false
+                document.getElementById('title').innerText = "Clan Points Leaderboard"
+            } else {
+                whatOverlay = 0
+                document.getElementById('overlayzero').hidden = false
+                document.getElementById('overlayone').hidden = true
+                document.getElementById('title').innerText = "Clan Quests Overlay"
             }
-
-            document.getElementById("qc0").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[0].Type)}`
-            document.getElementById("p0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[0].Amount.toLocaleString()}`
-            document.getElementById("s0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Stars}`
-            document.getElementById("qc1").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[1].Type)}`
-            document.getElementById("p1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[1].Amount.toLocaleString()}`
-            document.getElementById("s1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Stars}`
-            document.getElementById("qc2").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[2].Type)}`
-            document.getElementById("p2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[2].Amount.toLocaleString()}`
-            document.getElementById("s2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Stars}`
-            document.getElementById("qc3").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[3].Type)}`
-            document.getElementById("p3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[3].Amount.toLocaleString()}`
-            document.getElementById("s3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Stars}`
-            document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`
-            document.getElementById("updated").innerText = `Last Updated: ${new Date().toLocaleTimeString()}`
-          
-          }).catch(error => {
-            console.error('Error:', error.message);
-          });
+            run()
         }
 
+        async function getClanDetails(clanName) {
+            const url = `${apiUrl}/api/clan/${clanTag}`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (!response.ok || data.status !== 'ok') {
+                    throw new Error(`Failed to fetch details for clan '${clanName}'`);
+                }
+                return data.data;
+            } catch (error) {
+                throw new Error(`Error in getClanDetails: ${error.message}`);
+            }
+        }
+
+        let clanRank = null
+
+        async function run() {
+            if (whatOverlay == 0) {
+                getClans().then(clans => {
+                    clans.sort((a, b) => b.Points - a.Points);
+                    // Find the position of the clan
+                    const position = clans.findIndex(clan => clan.Name === clanTag);
+                    if (position !== -1) {
+                        clanRank = position + 1
+                    } else {}
+                })
+
+                getClanDetails(clanTag).then(async clanDetails => {
+                    async function getQuestNameFromType(type) {
+                        const questTypes = {
+                            "29": "Jungle Obby Completions",
+                            "46": "Catch Fish in Advanced Fishing",
+                            "34": "Unknown(updating)",
+                            "38": "Break Comets in Best Area",
+                            "40": "Unknown(updating)",
+                            "44": "Break Lucky Blocks in Best Area",
+                            "21": "Break Breakables in Best Area",
+                            "39": "Break Mini-Chests in Best Area",
+                            "7": "Earn Diamonds",
+                            "37": "Break Coin Jars in Best Area",
+                            "43": "Unknown(updating)",
+                            "42": "Unknown(updating)",
+                            "9": "Break Diamond Breakables",
+                            "41": "Unknown(updating)",
+                            "20": "Hatch Best Eggs",
+                            "12": "Craft Tier 3 Potions",
+                            "45": "Find Chests in Advanced Digsite",
+                            "73": "Break Breakables in the Treasure Hideout"
+                        };
+
+                        try {
+                            if (questTypes[type]) {
+                                return questTypes[type];
+                            } else {
+                                return "Unknown Quest";
+                            }
+                        } catch {
+                            return "Unknown Quest";
+                        }
+                    }
+
+                    document.getElementById("qc0").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[0].Type)}`
+                    document.getElementById("p0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[0].Amount.toLocaleString()}`
+                    document.getElementById("s0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Stars}`
+                    document.getElementById("qc1").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[1].Type)}`
+                    document.getElementById("p1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[1].Amount.toLocaleString()}`
+                    document.getElementById("s1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Stars}`
+                    document.getElementById("qc2").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[2].Type)}`
+                    document.getElementById("p2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[2].Amount.toLocaleString()}`
+                    document.getElementById("s2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Stars}`
+                    document.getElementById("qc3").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[3].Type)}`
+                    document.getElementById("p3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[3].Amount.toLocaleString()}`
+                    document.getElementById("s3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Stars}`
+                    document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`
+                    document.getElementById("updated").innerText = `Last Updated: ${new Date().toLocaleTimeString()}`
+
+                }).catch(error => {
+                    console.error('Error:', error.message);
+                });
+            }
 
 
         }
     </script>
-  </body>
+</div>
+</body>
 </html>
