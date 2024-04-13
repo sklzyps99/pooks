@@ -26,3 +26,8 @@ th, td {
 th {
   background-color: rgb(35, 35, 35);
 }
+.star-icon {
+  vertical-align: middle; /* Aligns the image vertically */
+  width: 1em; /* Set the width to the size of the text */
+  height: 1em; /* Set the height to the size of the text */
+}
