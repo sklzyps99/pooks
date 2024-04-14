@@ -4,7 +4,9 @@ body {
   padding: 0;
   background-color: rgb(20, 20, 20);
   color: white;
+  overflow: hidden; /* Prevent scrollbars */
 }
+
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -12,20 +14,35 @@ body {
   background-color: rgb(30,30,30);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure z-index works */
+  z-index: 1; /* Set z-index to appear above the particles */
 }
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Set z-index of particles canvas to be below other content */
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
+
 th, td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid rgb(35, 35, 35);
 }
+
 th {
   background-color: rgb(35, 35, 35);
 }
+
 .star-icon {
   vertical-align: middle; /* Aligns the image vertically */
   width: 1em; /* Set the width to the size of the text */
