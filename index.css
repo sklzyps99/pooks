@@ -16,7 +16,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative; /* Ensure z-index works */
   z-index: 1; /* Set z-index to appear above the particles */
-  margin-top: 50px; /* Adjust this value as needed to position the container below any fixed header */
 }
 
 #particles-js {
