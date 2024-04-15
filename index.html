@@ -30,11 +30,19 @@
             <td id="qc0">Fix 99 Bugs</td>
             <td id="p0">0/99</td>
             <td>
-              <span id="s0">100</span>
-              <img src="star.png" alt="Star" class="star-icon">
+              <span id="starContainer0">
+                <span id="s0">100</span>
+                <img src="star.png" alt="Star" class="star-icon">
+              </span>
             </td>
           </tr>
           <tr>
+            <td colspan="3">
+              <div class="progress-container">
+                <div class="progress-bar" id="pb0"></div>
+              </div>
+            </td>
+          </tr>          
             <td id="qc1">Fix 99 Bugs</td>
             <td id="p1">0/99</td>
             <td>
@@ -328,10 +336,11 @@
                 return "Unknown Quest";
               }
             }
-
+            
             document.getElementById("qc0").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[0].Type)}`
             document.getElementById("p0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[0].Amount.toLocaleString()}`
             document.getElementById("s0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Stars}`
+            document.getElementById("pb0").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[0].Progress / clanDetails.Battles.GoalBattleTwo.Goals[0].Amount) * 100}%`
             document.getElementById("qc1").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[1].Type)}`
             document.getElementById("p1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[1].Amount.toLocaleString()}`
             document.getElementById("s1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Stars}`
