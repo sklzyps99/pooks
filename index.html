@@ -42,30 +42,56 @@
                 <div class="progress-bar" id="pb0"></div>
               </div>
             </td>
-          </tr>          
-            <td id="qc1">Fix 99 Bugs</td>
-            <td id="p1">0/99</td>
-            <td>
-              <span id="s1">200</span>
-              <img src="star.png" alt="Star" class="star-icon">
-            </td>
-          </tr>
-          <tr>
-            <td id="qc2">Fix 99 Bugs</td>
-            <td id="p2">0/99</td>
-            <td>
-              <span id="s2">300</span>
-              <img src="star.png" alt="Star" class="star-icon">
-            </td>
-          </tr>
-          <tr>
-            <td id="qc3">Fix 99 Bugs</td>
-            <td id="p3">0/99</td>
-            <td>
-              <span id="s3">400</span>
-              <img src="star.png" alt="Star" class="star-icon">
-            </td>
-          </tr>
+            <tr>
+              <td id="qc1">Fix 99 Bugs</td>
+              <td id="p1">0/99</td>
+              <td>
+                <span id="starContainer1">
+                  <span id="s1">200</span>
+                  <img src="star.png" alt="Star" class="star-icon">
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div class="progress-container">
+                  <div class="progress-bar" id="pb1"></div>
+                </div>
+              </td>
+            
+            <tr>
+              <td id="qc2">Fix 99 Bugs</td>
+              <td id="p2">0/99</td>
+              <td>
+                <span id="starContainer2">
+                  <span id="s2">300</span>
+                  <img src="star.png" alt="Star" class="star-icon">
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div class="progress-container">
+                  <div class="progress-bar" id="pb2"></div>
+                </div>
+              </td>
+            
+            <tr>
+              <td id="qc3">Fix 99 Bugs</td>
+              <td id="p3">0/99</td>
+              <td>
+                <span id="starContainer3">
+                  <span id="s3">400</span>
+                  <img src="star.png" alt="Star" class="star-icon">
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div class="progress-container">
+                  <div class="progress-bar" id="pb3"></div>
+                </div>
+              </td>
         </tbody>
         </tbody>
       </table>
@@ -344,12 +370,15 @@
             document.getElementById("qc1").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[1].Type)}`
             document.getElementById("p1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[1].Amount.toLocaleString()}`
             document.getElementById("s1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Stars}`
+            document.getElementById("pb1").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[1].Progress / clanDetails.Battles.GoalBattleTwo.Goals[1].Amount) * 100}%`
             document.getElementById("qc2").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[2].Type)}`
             document.getElementById("p2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[2].Amount.toLocaleString()}`
             document.getElementById("s2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Stars}`
+            document.getElementById("pb2").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[2].Progress / clanDetails.Battles.GoalBattleTwo.Goals[2].Amount) * 100}%`
             document.getElementById("qc3").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[3].Type)}`
             document.getElementById("p3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[3].Amount.toLocaleString()}`
             document.getElementById("s3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Stars}`
+            document.getElementById("pb3").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[3].Progress / clanDetails.Battles.GoalBattleTwo.Goals[3].Amount) * 100}%`
             document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`
             document.getElementById("updated").innerText = `Last Updated: ${new Date().toLocaleTimeString()}`
           
