@@ -74,3 +74,8 @@ th {
   font-size: 24px;
   font-weight: bold;
 }
+
+#Contributions {
+  color: #00ff00; 
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); 
+}
