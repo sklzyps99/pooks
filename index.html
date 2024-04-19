@@ -328,8 +328,8 @@
           }).map((clan, index, arr) => {
             const formattedClan = `${clan.Name} - ${clan.Points}`;
             if (index > 0) {
-              const currentDifference = arr[index - 1].Points - clan.Points;
-              const nextDifference = index < arr.length - 1 ? clan.Points - arr[index + 1].Points : 0;
+              const currentDifference = clan.Points - arr[index - 1].Points;
+              const nextDifference = index < arr.length - 1 ? arr[index + 1].Points - clan.Points : 0;
 
               if (currentDifference > nextDifference) {
                 return `<span style="color: green; font-weight: bold;">${formattedClan}</span>`;
