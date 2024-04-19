@@ -283,7 +283,7 @@
       }
 
       async function getClans(page, pageSize, sort, sortOrder) {
-        const url = `${apiUrl}/api/clans`;
+        const url = `${apiUrl}/api/clans?page=1&pageSize=100&sort=Points&sortOrder=desc`;
         try {
           const response = await fetch(url);
           const data = await response.json();
