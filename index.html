@@ -237,7 +237,7 @@
 
       setInterval(() => {
         run()
-      }, 60000);
+      }, 10000);
 
       function changeOverlay() {
         if (whatOverlay == 0) {
@@ -313,7 +313,7 @@
         if (whatOverlay == 0) {
           getClans().then(clans => {
             clans.sort((a, b) => b.Points - a.Points);
-            // Find the position of the clan
+            // Find the position of the clan - broken for now
             const position = clans.findIndex(clan => clan.Name === clanTag);
             if (position !== -1) {
               clanRank = position + 1

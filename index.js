@@ -1,3 +1,5 @@
+// electron stuff, ignore this was for overlay
+
 const { app, BrowserWindow, nativeImage } = require('electron');
 const path = require('path');
 
