@@ -18,6 +18,10 @@
       <a id="clan">Clan Rank: #99 | Clan Points: 99</a>
       <br>
       <div id="Contributions"></div>
+      <div id="note" style="font-style: italic; font-size: small; margin-top: 5px; display: none;">
+        Note: This does not mean there are this many in the hideout right now.
+      </div>
+
       <table id="overlayzero">
         <thead>
           <tr>
@@ -400,20 +404,22 @@
                     document.getElementById(`qc${i}`).innerText = questName;
                   }
 
-                  // Update clan rank and points
+
                   document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`;
                   document.getElementById("updated").innerText = `Last Updated: ${new Date().toLocaleTimeString()}`;
 
-                  // Update contributions for Treasure Hideout quest
+
                   const questType2 = clanDetails.Battles.GoalBattleTwo.Goals[2].Type;
                   const questType3 = clanDetails.Battles.GoalBattleTwo.Goals[3].Type;
                   if (questType2 === 73) {
                     const numContributors2 = Object.keys(clanDetails.Battles.GoalBattleTwo.Goals[2].Contributions).length;
-                    document.getElementById("Contributions").innerText = `There are currently ${numContributors2} people contributing to the Treasure Hideout.`;
+                    document.getElementById("Contributions").innerText = `There are currently ${numContributors2} people contributing to the Treasure Hideout.`
+                    document.getElementById("note").style.display = "block"
                   }
                   if (questType3 === 73) {
                     const numContributors3 = Object.keys(clanDetails.Battles.GoalBattleTwo.Goals[3].Contributions).length;
-                    document.getElementById("Contributions").innerText = `There are currently ${numContributors3} people contributing to the Treasure Hideout.`;
+                    document.getElementById("Contributions").innerText = `There are currently ${numContributors3} people contributing to the Treasure Hideout.`
+                    document.getElementById("note").style.display = "block"
                   }
                   if (questType2 !== 73 && questType3 !== 73) {
                     document.getElementById("Contributions").innerText = "";
