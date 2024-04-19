@@ -17,6 +17,7 @@
       <br>
       <a id="clan">Clan Rank: #99 | Clan Points: 99</a>
       <br>
+      <div id="Contributions"></div>
       <table id="overlayzero">
         <thead>
           <tr>
@@ -401,19 +402,19 @@
             const questType3 = clanDetails.Battles.GoalBattleTwo.Goals[3].Type;
             
             if (questType2 === 73) {
-
+                // Update quest name for quest 2
                 const numContributors2 = Object.keys(clanDetails.Battles.GoalBattleTwo.Goals[2].Contributions).length;
                 document.getElementById("qc2").innerText = `${await getQuestNameFromType(questType2)}`;
-
-                document.getElementById("Contributions").innerText = `There are currently ${numContributors2} people in the Treasure Hideout.`;
+                // Update count of contributors for quest 2 at the top of the container
+                document.getElementById("Contributions").innerText = `There are currently ${numContributors2} people contributing to the Treasure Hideout.`;
             }
 
             if (questType3 === 73) {
-
+                // Update quest name for quest 3
                 const numContributors3 = Object.keys(clanDetails.Battles.GoalBattleTwo.Goals[3].Contributions).length;
                 document.getElementById("qc3").innerText = `${await getQuestNameFromType(questType3)}`;
-
-                document.getElementById("Contributions").innerText = `There are currently ${numContributors3} people in the Treasure Hideout.`;
+                // Update count of contributors for quest 3 at the top of the container
+                document.getElementById("Contributions").innerText = `There are currently ${numContributors3} people contributing to the Treasure Hideout.`;
             }
             
             document.getElementById("qc0").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[0].Type)}`
