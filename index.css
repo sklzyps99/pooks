@@ -64,3 +64,13 @@ th {
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
+
+.title-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+}

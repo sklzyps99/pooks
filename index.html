@@ -97,8 +97,11 @@
       </table>
       <div id="Contributions"></div>
     </div>
+    <div class="title-container">
+      <h2>The Great Battle of Top 10</h2>
+  </div>
     <div class="container" id="clanListContainer">
-      <!-- List of clans will be displayed here -->
+      
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
@@ -326,25 +329,9 @@
           const specificClans = clans.filter(clan => {
             return clan.Name === 'x69' || clan.Name === 'P0Ok' || clan.Name === 'Sn_w';
           }).map((clan, index, arr) => {
-            const formattedClan = `${clan.Name} - ${clan.Points}`;
-            let currentColor = '';
-
-            if (index > 0) {
-              const currentDifference = clan.Points - arr[index - 1].Points;
-              const prevDifference = arr[index - 1].Points - (index > 1 ? arr[index - 2].Points : 0);
-
-              if (prevDifference > 0 && currentDifference <= 0) {
-                currentColor = 'red';
-              } else if (prevDifference <= 0 && currentDifference <= 0) {
-                currentColor = 'white';
-              } else if (prevDifference > 0 && currentDifference > 0) {
-                currentColor = 'green';
-              }
-            } else {
-              currentColor = 'white';
-            }
-
-            return `<span style="color: ${currentColor}; font-weight: bold;">${formattedClan}</span>`;
+            const position = index + 9; // Calculate the position from 9th to 11th
+            const formattedClan = `${position}. ${clan.Name} - ${clan.Points}`;
+            return `<span style="font-weight: 600; font-size: 18px; margin-bottom: 5px; display: block;">${formattedClan}</span>`;
           });
 
           const clanList = document.createElement('ul');
@@ -355,11 +342,16 @@
             clanList.appendChild(listItem);
           });
 
-          
+          const clanListContainer = document.getElementById('clanListContainer');
+          clanListContainer.innerHTML = '';
           clanListContainer.appendChild(clanList);
         }).catch(error => {
           console.error('Error:', error.message);
         });
+
+
+
+
 
           getClanDetails(clanTag).then(async clanDetails => {
             async function getQuestNameFromType(type) {
