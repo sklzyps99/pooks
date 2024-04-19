@@ -97,9 +97,6 @@
       </table>
       <div id="Contributions"></div>
     </div>
-    <div class="container" id="clanListContainer">
-
-    </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS('particles-js', {
@@ -229,7 +226,6 @@
       throw new Error(`Error in getClanDetails: ${error.message}`);
     }
   }
-  setInterval(run, 3000);
 </script>
 
     </div>
@@ -311,54 +307,18 @@
         }
       }
 
-      let clanRank = 10
+      let clanRank = 11
 
       async function run() {
-          if (whatOverlay == 0) {
-            try {
-              
-              const allClans = await getClans();
-              allClans.sort((a, b) => b.Points - a.Points);
-
-              
-              const position = allClans.findIndex(clan => clan.Name === clanTag);
-              if (position !== -1) {
-                clanRank = position + 1;
-                document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${allClans[position].Points.toLocaleString()}`;
-              }
-
-              
-              const specificClans = allClans.filter(clan => ['x69', 'P0Ok', 'Sn_w'].includes(clan.Name));
-              const clanListContainer = document.getElementById('clanListContainer');
-              clanListContainer.innerHTML = '';
-
-              const clanList = document.createElement('ul');
-              clanList.classList.add('clan-list');
-              specificClans.forEach(clan => {
-                const listItem = document.createElement('li');
-                const formattedClan = `${clan.Name} - ${clan.Points}`;
-                listItem.innerHTML = formattedClan;
-
-                
-                if (specificClans.indexOf(clan) < specificClans.length - 1) {
-                  const nextClan = specificClans[specificClans.indexOf(clan) + 1];
-                  if (clan.Points > nextClan.Points) {
-                    listItem.style.color = 'green';
-                  } else if (clan.Points < nextClan.Points) {
-                    listItem.style.color = 'red';
-                  }
-                }
-
-                clanList.appendChild(listItem);
-              });
-
-              clanListContainer.appendChild(clanList);
-            } catch (error) {
-              console.error('Error:', error.message);
-            }
-          }
-        }
-
+        if (whatOverlay == 0) {
+          getClans().then(clans => {
+            clans.sort((a, b) => b.Points - a.Points);
+            // Find the position of the clan - broken for now
+            const position = clans.findIndex(clan => clan.Name === clanTag);
+            if (position !== -1) {
+              clanRank = position + 1
+            } else {}
+          })
 
           getClanDetails(clanTag).then(async clanDetails => {
             async function getQuestNameFromType(type) {
@@ -427,11 +387,11 @@
           }).catch(error => {
             console.error('Error:', error.message);
           });
-        
+        }
 
 
 
-        
+        }
     </script>
   </body>
 </html>
