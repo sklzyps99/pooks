@@ -323,21 +323,26 @@
         getClans().then(clans => {
           clans.sort((a, b) => b.Points - a.Points);
 
-          
           const specificClans = clans.filter(clan => {
             return clan.Name === 'x69' || clan.Name === 'P0Ok' || clan.Name === 'Sn_w';
           }).map((clan, index, arr) => {
             const formattedClan = `${clan.Name} - ${clan.Points}`;
-            if (index < arr.length - 1 && clan.Points > arr[index + 1].Points) {
-              return `<span style="color: green; font-weight: bold;">${formattedClan}</span>`;
-            } else if (index < arr.length - 1 && clan.Points < arr[index + 1].Points) {
-              return `<span style="color: red; font-weight: bold;">${formattedClan}</span>`;
+            if (index > 0) {
+              const currentDifference = arr[index - 1].Points - clan.Points;
+              const nextDifference = index < arr.length - 1 ? clan.Points - arr[index + 1].Points : 0;
+
+              if (currentDifference > nextDifference) {
+                return `<span style="color: green; font-weight: bold;">${formattedClan}</span>`;
+              } else if (currentDifference < nextDifference) {
+                return `<span style="color: red; font-weight: bold;">${formattedClan}</span>`;
+              } else {
+                return `<span style="font-weight: bold;">${formattedClan}</span>`;
+              }
             } else {
               return `<span style="font-weight: bold;">${formattedClan}</span>`;
             }
           });
-
-          
+                  
           const clanList = document.createElement('ul');
           clanList.classList.add('clan-list');
           specificClans.forEach(clan => {
