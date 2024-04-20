@@ -367,7 +367,20 @@
 
                 // Fetch clan details
                 getClanDetails(clanTag).then(async clanDetails => {
-                  async function getQuestNameFromType(type) {
+                  getClans().then(clans => {
+                      clans.sort((a, b) => b.Points - a.Points);
+                      const p0okIndex = clans.findIndex(clan => clan.Name.toLowerCase() === 'p0ok');
+                      if (p0okIndex > 0) {
+                          const pointsDifference = clans[p0okIndex - 1].Points - clans[p0okIndex].Points;
+                          document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()} | Points Difference: ${pointsDifference}`;
+                      } else {
+                          document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()} | P0Ok is the top clan`;
+                      }
+                    }).catch(error => {
+                        console.error('Error:', error.message);
+                    });
+                          
+                      async function getQuestNameFromType(type) {
                     const questTypes = {
                     7: "Earn Diamonds",
                     9: "Break Diamond Breakables",
@@ -404,6 +417,8 @@
                       return "Unknown Quest";
                     }
                   }
+
+                  
 
                   // Update quest details
                   for (let i = 0; i <= 3; i++) {
