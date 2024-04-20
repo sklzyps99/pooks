@@ -345,7 +345,7 @@
                   const specificClans = clans.filter(clan => {
                     return clan.Name === 'x69' || clan.Name === 'P0Ok' || clan.Name === 'Sn_w' || clan.Name === 'C4T6';
                   }).map((clan, index, arr) => {
-                    const position = index + 9; // Calculate the position from 9th to 11th
+                    const position = index + 8; // Calculate the position from 9th to 11th
                     const formattedClan = `${position}. ${clan.Name} - ${clan.Points}`;
                     return `<span style="font-weight: 600; font-size: 18px; margin-bottom: 5px; display: block;">${formattedClan}</span>`;
                   });
