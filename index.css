@@ -79,3 +79,22 @@ th {
   color: #00ff00; 
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); 
 }
+
+#toggleParticlesBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #444444;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+#toggleParticlesBtn:hover {
+  border-color: #666;
+}

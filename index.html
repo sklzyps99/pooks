@@ -21,7 +21,7 @@
       <div id="note" style="font-style: italic; font-size: small; margin-top: 5px; display: none;">
         Note: This does not mean there are this many in the hideout right now.
       </div>
-
+      <button id="toggleParticlesBtn" style="position: fixed; top: 20px; right: 20px;">Toggle Particles</button>
       <table id="overlayzero">
         <thead>
           <tr>
@@ -220,6 +220,20 @@
           },
           "retina_detect": true
         });
+      </script>
+      <script>
+        document.getElementById("toggleParticlesBtn").addEventListener("click", function() {
+          toggleParticlesBackground();
+        });
+    
+        function toggleParticlesBackground() {
+          var particlesDiv = document.getElementById("particles-js");
+          if (particlesDiv.style.display === "none") {
+            particlesDiv.style.display = "block";
+          } else {
+            particlesDiv.style.display = "none";
+          }
+        }
       </script>
 <script>
   document.addEventListener("DOMContentLoaded", run);
