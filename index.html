@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-      
+      <div class="overlay">
+        <h1>Clan Battle Ended</h1>
+        <p>We Placed: <span id="rankOverlay"></span></p>
+        <p>Total Clan Points: <span id="totalPoints"></span></p>
+        <p>Everyone doubted. We didn't. We fucking did it.</p>
+        <img src="pooks.png" alt="Pooks Clan" class="overlay-image">
+      </div>
     <div id="particles-js"></div>
     <div class="container">
       <h1 id="title">Pooks Clan Battle!</h1> Powered by the <a href="https://docs.biggamesapi.io/" style="color:white">Pet Simulator 99 API</a>
@@ -261,10 +267,6 @@
       const apiUrl = "https://biggamesapi.io"
       document.addEventListener("DOMContentLoaded", run);
       let whatOverlay = 0
-
-      setInterval(() => {
-        run()
-      }, 3000);
 
       function changeOverlay() {
         if (whatOverlay == 0) {
