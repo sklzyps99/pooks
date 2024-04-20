@@ -98,3 +98,24 @@ th {
 #toggleParticlesBtn:hover {
   border-color: #666;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 42, 42, 0.8);
+  z-index: 1000;
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 24px;
+  color: #00ff00; 
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); 
+}
+
+.overlay h1, .overlay p {
+  margin: 10px 0;
+}

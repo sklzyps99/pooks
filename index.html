@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+      <div class="overlay">
+        <h1>Clan Battle Ended</h1>
+        <p>We Placed: <span id="rankOverlay"></span></p>
+        <p>Total Clan Points: <span id="totalPoints"></span></p>
+      </div>
     <div id="particles-js"></div>
     <div class="container">
       <h1 id="title">Pooks Clan Battle!</h1> Powered by the <a href="https://docs.biggamesapi.io/" style="color:white">Pet Simulator 99 API</a>
@@ -332,7 +337,7 @@
         }
       }
 
-      let clanRank = 11
+      let clanRank = 10
 
       async function run() {
             if (whatOverlay == 0) {
@@ -471,7 +476,8 @@
                   document.getElementById("pb3").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[3].Progress / clanDetails.Battles.GoalBattleTwo.Goals[3].Amount) * 100}%`
                   document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`
                   document.getElementById("updated").innerText = `Last Updated: ${new Date().toLocaleTimeString()}`
-
+                  document.getElementById("totalPoints").innerText = `${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`
+                  document.getElementById("rankOverlay").innerText = `${clanRank}th`
 
 
                 }).catch(error => {
