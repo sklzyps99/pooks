@@ -13,7 +13,7 @@
         <h1>Clan Battle Ended</h1>
         <p>We Placed: <span id="rankOverlay"></span></p>
         <p>Total Clan Points: <span id="totalPoints"></span></p>
-        <p>Everyone doubted. We didn't. We fucking did it.</p>
+        <p>Next Battle: <span id="countdown"></span></p>
         <img src="pooks.png" alt="Pooks Clan" class="overlay-image">
       </div>
     <div id="particles-js"></div>
@@ -120,20 +120,20 @@
         particlesJS('particles-js', {
           "particles": {
             "number": {
-              "value": 100,
+              "value": 50,
               "density": {
                 "enable": true,
                 "value_area": 800
               }
             },
             "color": {
-              "value": "#ffffff"
+              "value": "#fffb00"
             },
             "shape": {
               "type": "circle",
               "stroke": {
                 "width": 0,
-                "color": "#000000"
+                "color": "#fffb00"
               },
               "polygon": {
                 "nb_sides": 5
@@ -165,9 +165,9 @@
               }
             },
             "line_linked": {
-              "enable": true,
+              "enable": false,
               "distance": 150,
-              "color": "#ffffff",
+              "color": "fffb00",
               "opacity": 0.4,
               "width": 1
             },
@@ -228,6 +228,32 @@
           "retina_detect": true
         });
       </script>
+      <script>
+
+        var countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 5);
+        countDownDate.setHours(17, 0, 0, 0);
+        
+
+        var x = setInterval(function() {
+
+          var now = new Date().getTime();
+          
+          var distance = countDownDate - now;
+          
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+          
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "The new clan battle has started! Page updating shortly.";
+          }
+        }, 1000);
+        </script>
       <script>
         document.getElementById("toggleParticlesBtn").addEventListener("click", function() {
           toggleParticlesBackground();
