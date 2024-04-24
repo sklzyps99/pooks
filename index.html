@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< Updated upstream
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,10 +109,25 @@
         </tbody>
       </table>
       <div id="Contributions"></div>
+=======
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="pooks quest tracker">
+  <meta name="theme-color" content="#ffffff">
+  <title>Pooks Clan Battle | 2.0</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="overlay">
+    <div class="overlay-content">
+      <h2>Coming Soon</h2>
+      <h1>Pooks Battle 2.0</h1>
+>>>>>>> Stashed changes
     </div>
-    <div class="title-container">
-      <h2>The Great Battle of Top 10</h2>
   </div>
+<<<<<<< Updated upstream
     <div class="container" id="clanListContainer">
       
     </div>
@@ -242,247 +258,186 @@
           }
         }
       </script>
-<script>
+=======
+<div class="container">
+  <h1 id="title">Pooks Clan Battle</h1>
+  <a id="updated">Last updated not now</a>
+  <br>
+  <a id="clan">Clan Rank: #99 | Clan Points: 99</a>
+  <br>
+  <table id="overlayzero">
+    <thead>
+    <tr>
+      <th>Quest Challenge</th>
+      <th>Progress</th>
+      <th>Stars</th>
+    </tr>
+    </thead>
+    <tbody id="questsData">
+    <tr>
+      <td id="qc0">Fix 99 Bugs</td>
+      <td id="p0">0/99</td>
+      <td>
+        <span id="starContainer0">
+          <span id="s0">100</span>
+          <img src="star.png" alt="Star" class="star-icon">
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div class="progress-container">
+          <div class="progress-bar" id="pb0"></div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td id="qc1">Fix 99 Bugs</td>
+      <td id="p1">0/99</td>
+      <td>
+        <span id="starContainer1">
+          <span id="s1">200</span>
+          <img src="star.png" alt="Star" class="star-icon">
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div class="progress-container">
+          <div class="progress-bar" id="pb1"></div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td id="qc2">Fix 99 Bugs</td>
+      <td id="p2">0/99</td>
+      <td>
+        <span id="starContainer2">
+          <span id="s2">300</span>
+          <img src="star.png" alt="Star" class="star-icon">
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div class="progress-container">
+          <div class="progress-bar" id="pb2"></div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td id="qc3">Fix 99 Bugs</td>
+      <td id="p3">0/99</td>
+      <td>
+        <span id="starContainer3">
+          <span id="s3">400</span>
+          <img src="star.png" alt="Star" class="star-icon">
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div class="progress-container">
+          <div class="progress-bar" id="pb3"></div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-  async function getClanDetails(clanName) {
-    const url = `${apiUrl}/api/clan/${clanTag}`;
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      if (!response.ok || data.status !== 'ok') {
-        throw new Error(`Failed to fetch details for clan '${clanName}'`);
-      }
-      return data.data;
-    } catch (error) {
-      throw new Error(`Error in getClanDetails: ${error.message}`);
+<div id="app">
+  <div class="search">
+      <input type="text" placeholder="Search Clan" v-model="searchQuery">
+  </div>
+  <div class="table-container">
+      <table>
+          <thead>
+              <tr>
+                  <th>Position</th>
+                  <th>Clan Name</th>
+                  <th>Points</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(clan, index) in filteredClans" :key="clan.Name">
+                  <td>{{ clan.position }}</td>
+                  <td>{{ clan.Name }}</td>
+                  <td>{{ clan.Points }}</td>
+              </tr>
+          </tbody>
+      </table>
+      <div class="warning" v-if="filteredClans.length === 0 && isLoaded">
+          No results found.
+      </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+>>>>>>> Stashed changes
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        searchQuery: '',
+        clans: [],
+        isLoaded: false
+    },
+    mounted() {
+        this.fetchClans();
+    },
+    methods: {
+        fetchClans() {
+            axios.get('https://biggamesapi.io/api/clans?page=1&pageSize=100&sort=Points&sortOrder=desc')
+                .then(response => {
+                    this.clans = response.data.data.map((clan, index) => ({ ...clan, position: index + 1 }));
+                    this.isLoaded = true;
+                })
+                .catch(error => {
+                    console.error('Error fetching clans:', error);
+                });
+        }
+    },
+    computed: {
+        filteredClans() {
+            return this.clans.filter(clan =>
+                clan.Name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            );
+        }
     }
-  }
+});
 </script>
 
+<div id="memberList">
+  <div class="search">
+    <input type="text" placeholder="Search Members" v-model="searchQuery">
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Points</th>
+          <th>Donated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(member, index) in filteredMembers" :key="index">
+          <td>{{ member.name }}</td>
+          <td>{{ member.points }}</td>
+          <td>{{ member.donated }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="warning" v-if="filteredMembers.length === 0 && isLoaded">
+      No results found.
     </div>
-    <script>
-      const clanTag = "P0OK"
-      const apiUrl = "https://biggamesapi.io"
-      document.addEventListener("DOMContentLoaded", run);
-      let whatOverlay = 0
-
-      function changeOverlay() {
-        if (whatOverlay == 0) {
-          whatOverlay = 1
-          document.getElementById('overlayzero').hidden = true
-          document.getElementById('overlayone').hidden = false
-          document.getElementById('title').innerText = "Clan Points Leaderboard"
-        } else {
-          whatOverlay = 0
-          document.getElementById('overlayzero').hidden = false
-          document.getElementById('overlayone').hidden = true
-          document.getElementById('title').innerText = "Clan Quests Overlay"
-        }
-        run()
-      }
-
-      async function getClanDetails(clanName) {
-        const url = `${apiUrl}/api/clan/${clanTag}`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          if (!response.ok || data.status !== 'ok') {
-            throw new Error(`Failed to fetch details for clan '${clanName}'`);
-          }
-          return data.data;
-        } catch (error) {
-          throw new Error(`Error in getClanDetails: ${error.message}`);
-        }
-      }
-
-      async function getChallenges() {
-        const url = `${apiUrl}/challenges.json`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          if (!response.ok || data.status !== 'ok') {
-            throw new Error('Failed to fetch challlenges');
-          }
-          return data.data;
-        } catch (error) {
-          throw new Error(`Error in getChallenges: ${error.message}`);
-        }
-      }
-
-      async function getClans(page, pageSize, sort, sortOrder) {
-        const url = `${apiUrl}/api/clans?page=1&pageSize=100&sort=Points&sortOrder=desc`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          if (!response.ok || data.status !== 'ok') {
-            throw new Error('Failed to fetch clans');
-          }
-          return data.data;
-        } catch (error) {
-          throw new Error(`Error in getClans: ${error.message}`);
-        }
-      }
-
-      async function getUsernameFromId(id) {
-        const url = `${apiUrl}/api/ids?id=${id}`;
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          throw new Error(`Error in getUsernameFromId: ${error.message}`);
-        }
-      }
-
-      let clanRank = 10
-
-      async function run() {
-            if (whatOverlay == 0) {
-                const clanListContainer = document.getElementById('clanListContainer');
-                clanListContainer.innerHTML = '';
-
-                getClans().then(clans => {
-                  clans.sort((a, b) => b.Points - a.Points);
-
-                  const specificClans = clans.filter(clan => {
-                    return clan.Name === 'x69' || clan.Name === 'P0Ok' || clan.Name === 'Sn_w' || clan.Name === 'C4T6';
-                  }).map((clan, index, arr) => {
-                    const position = index + 8;
-                    const formattedClan = `${position}. ${clan.Name} - ${clan.Points}`;
-                    return `<span style="font-weight: 600; font-size: 18px; margin-bottom: 5px; display: block;">${formattedClan}</span>`;
-                  });
-
-                  const clanList = document.createElement('ul');
-                  clanList.classList.add('clan-list');
-                  specificClans.forEach(clan => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = clan;
-                    clanList.appendChild(listItem);
-                  });
-
-                  const clanListContainer = document.getElementById('clanListContainer');
-                  clanListContainer.innerHTML = '';
-                  clanListContainer.appendChild(clanList);
-                }).catch(error => {
-                  console.error('Error:', error.message);
-                });
-
-                // Fetch clan details
-                getClanDetails(clanTag).then(async clanDetails => {
-                  getClans().then(clans => {
-                      clans.sort((a, b) => b.Points - a.Points);
-                      const p0okIndex = clans.findIndex(clan => clan.Name.toLowerCase() === 'p0ok');
-                      if (p0okIndex > 0) {
-                          const pointsDifference = clans[p0okIndex - 1].Points - clans[p0okIndex].Points;
-                          document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()} | Points Difference: ${pointsDifference}`;
-                      } else {
-                          document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()} | P0Ok is the top clan`;
-                      }
-                    }).catch(error => {
-                        console.error('Error:', error.message);
-                    });
-                          
-                      async function getQuestNameFromType(type) {
-                    const questTypes = {
-                    7: "Earn Diamonds",
-                    9: "Break Diamond Breakables",
-                    12: "Craft Tier III Potions",
-                    13: "Craft Tier III Enchants",
-                    14: "Collect Potions",
-                    20: "Hatch Best Egg",
-                    21: "Break Breakables in Best Area",
-                    22: "Complete Classic Obby",
-                    23: "Complete the Minefield",
-                    24: "Complete Atlantis",
-                    25: "Find Chests in Digsite",
-                    26: "Catch Fish in the Fishing Minigame",
-                    27: "Complete Ice Obby",
-                    29: "Complete Jungle Obby",
-                    34: "Use Tier IV Potions",
-                    37: "Fill Coin Jars in Best Area",
-                    38: "Break Comets in Best Area",
-                    39: "Break Mini Chests in Best Area",
-                    40: "Make Gold Pets from Best Egg",
-                    41: "Make Rainbow Pets from Best Egg",
-                    42: "Hatch Rare Pets from Best Egg",
-                    43: "Break Pinatas",
-                    44: "Break Lucky Blocks in Best Area",
-                    45: "Break Chests in Advanced Digsite",
-                    46: "Catch Fish in Advanced Fishing",
-                    73: "Break Breakables in the Treasure Hideout",
-                    74: "Consume XP Potions"
-              };
-
-                    try {
-                      return questTypes[type] || "Unknown Quest";
-                    } catch {
-                      return "Unknown Quest";
-                    }
-                  }
-
-                  
-
-                  // Update quest details
-                  for (let i = 0; i <= 3; i++) {
-                    const quest = clanDetails.Battles.GoalBattleTwo.Goals[i];
-                    const questName = await getQuestNameFromType(quest.Type);
-                    const progressElement = document.getElementById(`p${i}`);
-                    const starElement = document.getElementById(`s${i}`);
-                    const progressBar = document.getElementById(`pb${i}`);
-                    progressElement.innerText = `${quest.Progress.toLocaleString()}/${quest.Amount.toLocaleString()}`;
-                    starElement.innerText = `${quest.Stars}`;
-                    progressBar.style.width = `${(quest.Progress / quest.Amount) * 100}%`;
-                    document.getElementById(`qc${i}`).innerText = questName;
-                  }
+  </div>
+</div>
 
 
-                  document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`;
-                  document.getElementById("updated").innerText = `Last Updated: ${new Date().toLocaleTimeString()}`;
-
-
-                  const questType2 = clanDetails.Battles.GoalBattleTwo.Goals[2].Type;
-                  const questType3 = clanDetails.Battles.GoalBattleTwo.Goals[3].Type;
-                  if (questType2 === 73) {
-                    const numContributors2 = Object.keys(clanDetails.Battles.GoalBattleTwo.Goals[2].Contributions).length;
-                    document.getElementById("Contributions").innerText = `There are currently ${numContributors2} people contributing to the Treasure Hideout.`
-                    document.getElementById("note").style.display = "block"
-                  }
-                  if (questType3 === 73) {
-                    const numContributors3 = Object.keys(clanDetails.Battles.GoalBattleTwo.Goals[3].Contributions).length;
-                    document.getElementById("Contributions").innerText = `There are currently ${numContributors3} people contributing to the Treasure Hideout.`
-                    document.getElementById("note").style.display = "block"
-                  }
-                  if (questType2 !== 73 && questType3 !== 73) {
-                    document.getElementById("Contributions").innerText = "";
-                  }
-                  document.getElementById("qc0").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[0].Type)}`
-                  document.getElementById("p0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[0].Amount.toLocaleString()}`
-                  document.getElementById("s0").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[0].Stars}`
-                  document.getElementById("pb0").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[0].Progress / clanDetails.Battles.GoalBattleTwo.Goals[0].Amount) * 100}%`
-                  document.getElementById("qc1").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[1].Type)}`
-                  document.getElementById("p1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[1].Amount.toLocaleString()}`
-                  document.getElementById("s1").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[1].Stars}`
-                  document.getElementById("pb1").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[1].Progress / clanDetails.Battles.GoalBattleTwo.Goals[1].Amount) * 100}%`
-                  document.getElementById("qc2").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[2].Type)}`
-                  document.getElementById("p2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[2].Amount.toLocaleString()}`
-                  document.getElementById("s2").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[2].Stars}`
-                  document.getElementById("pb2").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[2].Progress / clanDetails.Battles.GoalBattleTwo.Goals[2].Amount) * 100}%`
-                  document.getElementById("qc3").innerText = `${await getQuestNameFromType(clanDetails.Battles.GoalBattleTwo.Goals[3].Type)}`
-                  document.getElementById("p3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Progress.toLocaleString()}/${clanDetails.Battles.GoalBattleTwo.Goals[3].Amount.toLocaleString()}`
-                  document.getElementById("s3").innerText = `${clanDetails.Battles.GoalBattleTwo.Goals[3].Stars}`
-                  document.getElementById("pb3").style.width = `${(clanDetails.Battles.GoalBattleTwo.Goals[3].Progress / clanDetails.Battles.GoalBattleTwo.Goals[3].Amount) * 100}%`
-                  document.getElementById("clan").innerText = `Clan Rank: #${clanRank} | Clan Points: ${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`
-                  document.getElementById("updated").innerText = `Last Updated: ${new Date().toLocaleTimeString()}`
-                  document.getElementById("totalPoints").innerText = `${Object.values(clanDetails.Battles)[Object.values(clanDetails.Battles).length - 1].Points.toLocaleString()}`
-                  document.getElementById("rankOverlay").innerText = `${clanRank}th`
-
-
-                }).catch(error => {
-                  console.error('Error:', error.message);
-                });
-              }
-            }
-          
-    </script>
-  </body>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="index.js"></script>
+</body>
 </html>
