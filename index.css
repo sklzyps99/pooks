@@ -19,16 +19,6 @@ body {
   border-image-slice: 1;
 }
 
-
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -452,6 +442,54 @@ th {
   z-index: 5;
 }
 
+.stats-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(52, 52, 52, 0.2);
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, #ff69b4, #87cefa);
+  border-image-slice: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats__item {
+  margin-right: 50px;
+}
+
+.stats__amount {
+  font-size: 20px;
+}
+
+.stats__caption {
+  font-size: 14px;
+  color: #888;
+}
+
+.stats__change {
+  margin-top: 5px;
+}
+
+.stats__value {
+  font-size: 14px;
+}
+
+.box__header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.box__header-title {
+  margin-top: 0px;
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -463,7 +501,7 @@ th {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
 }
 
 .overlay-content {
