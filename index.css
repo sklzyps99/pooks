@@ -420,11 +420,14 @@ th {
 }
 
 .overlay-content {
+  position: absolute; /* Position relative to the overlay */
+  top: 25%; /* Move the content 25% from the top of the overlay */
+  left: 50%; /* Move the content 50% from the left of the overlay */
+  transform: translate(-50%, -50%); /* Center the content horizontally and vertically */
   text-align: center;
-  color: transparent;
-  background: linear-gradient(to right, #ff69b4, #87cefa);
-  -webkit-background-clip: text;
-  background-clip: text;
+  background: linear-gradient(to right, #ff69b4, #87cefa); /* Apply linear gradient as background */
+  -webkit-background-clip: text; /* Clip text to the background */
+  -webkit-text-fill-color: transparent; /* Set text color to transparent */
 }
 
 .overlay h1 {
