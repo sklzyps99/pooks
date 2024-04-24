@@ -173,25 +173,27 @@ new Vue({
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Points</th>
-          <th>Donated</th>
+          <th @click="sortBy('name')">Name <span v-if="sortByColumn === 'name'" :class="{ 'arrow-up': sortDirection === 'asc', 'arrow-down': sortDirection === 'desc' }"></span></th>
+          <th @click="sortBy('points')">Points <span v-if="sortByColumn === 'points'" :class="{ 'arrow-up': sortDirection === 'asc', 'arrow-down': sortDirection === 'desc' }"></span></th>
+          <th @click="sortBy('donated')">Donated <span v-if="sortByColumn === 'donated'" :class="{ 'arrow-up': sortDirection === 'asc', 'arrow-down': sortDirection === 'desc' }"></span></th>
+    </tr>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(member, index) in filteredMembers" :key="index">
+        <tr v-for="(member, index) in sortedMembers" :key="index">
           <td>{{ member.name }}</td>
           <td>{{ member.points }}</td>
-          <td>{{ member.donated }}</td>
+          <td>
+            <img src="gems.png" alt="Gems" class="gems-icon"> {{ member.donated }}
+          </td>
         </tr>
       </tbody>
     </table>
-    <div class="warning" v-if="filteredMembers.length === 0 && isLoaded">
+    <div class="warning" v-if="sortedMembers.length === 0 && isLoaded">
       No results found.
     </div>
   </div>
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="index.js"></script>
