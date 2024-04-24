@@ -140,22 +140,24 @@
       <input type="text" placeholder="Search Clan" v-model="searchQuery">
   </div>
   <div class="table-container">
-      <table>
-          <thead>
-              <tr>
-                  <th>Position</th>
-                  <th>Clan Name</th>
-                  <th>Points</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr v-for="(clan, index) in filteredClans" :key="clan.Name">
-                  <td>{{ clan.position }}</td>
-                  <td>{{ clan.Name }}</td>
-                  <td>{{ clan.Points }}</td>
-              </tr>
-          </tbody>
-      </table>
+      <div class="table-body-container">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Position</th>
+                      <th>Clan Name</th>
+                      <th>Points</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr v-for="(clan, index) in filteredClans" :key="clan.Name">
+                      <td>{{ clan.position }}</td>
+                      <td>{{ clan.Name }}</td>
+                      <td>{{ clan.Points }}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
       <div class="warning" v-if="filteredClans.length === 0 && isLoaded">
           No results found.
       </div>
