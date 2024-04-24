@@ -3,7 +3,7 @@ body {
   font-weight: 600;
   margin: 0;
   padding: 0;
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(19, 19, 19);
   color: white;
 }
 
@@ -429,29 +429,52 @@ th {
   margin-left: 5px;
 }
 
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.footer-image {
+  width: 100px;
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 5;
+}
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
-  backdrop-filter: blur(10px); /* Apply blur effect */
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1; /* Ensure it's above other elements */
+  z-index: 1;
 }
 
 .overlay-content {
-  position: absolute; /* Position relative to the overlay */
-  top: 25%; /* Move the content 25% from the top of the overlay */
-  left: 50%; /* Move the content 50% from the left of the overlay */
-  transform: translate(-50%, -50%); /* Center the content horizontally and vertically */
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  background: linear-gradient(to right, #ff69b4, #87cefa); /* Apply linear gradient as background */
-  -webkit-background-clip: text; /* Clip text to the background */
-  -webkit-text-fill-color: transparent; /* Set text color to transparent */
+  background: linear-gradient(to right, #ff69b4, #87cefa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .overlay h1 {

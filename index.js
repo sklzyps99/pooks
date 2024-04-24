@@ -5,21 +5,6 @@ document.addEventListener("DOMContentLoaded", run);
 
 let whatOverlay = 0;
 
-function changeOverlay() {
-  if (whatOverlay == 0) {
-    whatOverlay = 1;
-    document.getElementById('overlayzero').hidden = true;
-    document.getElementById('overlayone').hidden = false;
-    document.getElementById('title').innerText = "Clan Points Leaderboard";
-  } else {
-    whatOverlay = 0;
-    document.getElementById('overlayzero').hidden = false;
-    document.getElementById('overlayone').hidden = true;
-    document.getElementById('title').innerText = "Clan Quests Overlay";
-  }
-  run();
-}
-
 async function getClanDetails(clanName) {
   const url = `${apiUrl}/api/clan/${clanTag}`;
   try {
@@ -59,17 +44,6 @@ async function getClans(page, pageSize, sort, sortOrder) {
     return data.data;
   } catch (error) {
     throw new Error(`Error in getClans: ${error.message}`);
-  }
-}
-
-async function getUsernameFromId(id) {
-  const url = `${apiUrl}/api/ids?id=${id}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    throw new Error(`Error in getUsernameFromId: ${error.message}`);
   }
 }
 
@@ -710,4 +684,12 @@ new Vue({
       })
       .catch(error => console.error('Error fetching data:', error));
   }
+});
+
+document.getElementById("donateBtn").addEventListener("mouseover", function() {
+  document.getElementById("popup").style.display = "block";
+});
+
+document.getElementById("donateBtn").addEventListener("mouseout", function() {
+  document.getElementById("popup").style.display = "none";
 });
