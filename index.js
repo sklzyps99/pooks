@@ -147,432 +147,298 @@ new Vue({
   el: '#memberList',
   data: {
     searchQuery: '',
-    members: [{
-      "hasVerifiedBadge": false,
-      "id": 10792811,
-      "name": "Z0bon67",
-      "displayName": "Z0bon"
+      members: [{
+        "id": 10792811,
+        "name": "Z0bon67"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1156835957,
-      "name": "C0llinbk",
-      "displayName": "Collinbk"
+        "id": 1156835957,
+        "name": "C0llinbk"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1512548444,
-      "name": "WavyJay2431",
-      "displayName": "ImaWinner"
+        "id": 146371438,
+        "name": "zyolid"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 141527450,
-      "name": "CrookedMike1230",
-      "displayName": "CrookedMike1230"
+        "id": 181691619,
+        "name": "FunnyRff"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 3354874057,
-      "name": "donbear2",
-      "displayName": "Amity"
+        "id": 746867232,
+        "name": "OsoPunisher"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 5306083286,
-      "name": "BuyItemFromIsland",
-      "displayName": "BuyItemFromIsland"
+        "id": 92848453,
+        "name": "kittenvalcory"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 2349456864,
-      "name": "pin_boxx",
-      "displayName": "pin_boxx"
+        "id": 3730046266,
+        "name": "jumpiAlt1"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 123148614,
-      "name": "nopje101",
-      "displayName": "nopje101"
+        "id": 588552860,
+        "name": "Sally_Seahorse"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 3071024195,
-      "name": "keeds_yt",
-      "displayName": "keeds_yt"
+        "id": 2594214258,
+        "name": "Almuzze"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1862084959,
-      "name": "JOJOTHT0",
-      "displayName": "JOJOTHT0"
+        "id": 4834390663,
+        "name": "Mercyeyee"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 2251703695,
-      "name": "Lisek_guy",
-      "displayName": "Lisek_guy2"
+        "id": 1512548444,
+        "name": "WavyJay2431"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 4426362318,
-      "name": "Fyyyyyysh",
-      "displayName": "Fysh"
+        "id": 141527450,
+        "name": "CrookedMike1230"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1608012,
-      "name": "Teqnition",
-      "displayName": "sklzy"
+        "id": 106818,
+        "name": "knux"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1701760870,
-      "name": "RedFireRoblox_YT",
-      "displayName": "redfire"
+        "id": 3354874057,
+        "name": "donbear2"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1567745660,
-      "name": "ErasedNightmare",
-      "displayName": "Shxon"
+        "id": 5306083286,
+        "name": "BuyItemFromIsland"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1343778717,
-      "name": "Shadowseer66",
-      "displayName": "Seer"
+        "id": 5310324136,
+        "name": "park_cullen"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 535073200,
-      "name": "szimino",
-      "displayName": "kxal999"
+        "id": 74378193,
+        "name": "donbear1"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 2060725837,
-      "name": "gamer_boy292929",
-      "displayName": "DaEpikGamerBoy"
+        "id": 2349456864,
+        "name": "pin_boxx"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1074240937,
-      "name": "omer876548",
-      "displayName": "omer876548"
+        "id": 1386548068,
+        "name": "Drag00n8"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1750597043,
-      "name": "gotejt5",
-      "displayName": "PapaSmurf"
+        "id": 123148614,
+        "name": "nopje101"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1089770566,
-      "name": "lowlowylowed",
-      "displayName": "DUMMY"
+        "id": 2918007897,
+        "name": "SeVonii"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1359717152,
-      "name": "juenjuenis",
-      "displayName": "OO8"
+        "id": 2396246362,
+        "name": "FennWenn"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 563273255,
-      "name": "ninjagofansag",
-      "displayName": "Dede19xD"
+        "id": 3071024195,
+        "name": "keeds_yt"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 851188438,
-      "name": "TomuSpelar7777",
-      "displayName": "KSA_WOOW"
+        "id": 180754044,
+        "name": "kawabouga"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 387600604,
-      "name": "tomastomas747",
-      "displayName": "MrWake"
+        "id": 1862084959,
+        "name": "JOJOTHT0"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1060480074,
-      "name": "listofmisery",
-      "displayName": "provalorantplayerXDD"
+        "id": 4303761327,
+        "name": "STONEY_NOTTZ"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1039726785,
-      "name": "XavvenTheDruid",
-      "displayName": "XavvenTheDruid"
+        "id": 134514775,
+        "name": "Ilceto"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 3730046266,
-      "name": "jumpiAlt1",
-      "displayName": "jumpi"
+        "id": 1527453936,
+        "name": "Strekie"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 328442280,
-      "name": "drake140207",
-      "displayName": "DRAKKA_NAKKA"
+        "id": 694730737,
+        "name": "farbror_f"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 2504615411,
-      "name": "cignaljae",
-      "displayName": "JaeXtapose"
+        "id": 1359717152,
+        "name": "juenjuenis"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 694730737,
-      "name": "farbror_f",
-      "displayName": "farbror_f"
+        "id": 2504615411,
+        "name": "cignaljae"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 134514775,
-      "name": "Ilceto",
-      "displayName": "Ilce"
+        "id": 2251703695,
+        "name": "Lisek_guy"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 588552860,
-      "name": "Sally_Seahorse",
-      "displayName": "Secret"
+        "id": 630775569,
+        "name": "Vorpism"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1769174994,
-      "name": "DevTree_s",
-      "displayName": "Tree"
+        "id": 632814640,
+        "name": "NotDoritoDad"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 5719940369,
-      "name": "Arctodious",
-      "displayName": "Arc"
+        "id": 746620526,
+        "name": "EmperorLeg"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1221841742,
-      "name": "Fallenko_God",
-      "displayName": "Azurq"
+        "id": 1364006688,
+        "name": "Valentin25313"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 106818,
-      "name": "knux",
-      "displayName": "knux"
+        "id": 328442280,
+        "name": "drake140207"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 181691619,
-      "name": "FunnyRff",
-      "displayName": "FunnyRff"
+        "id": 1315256380,
+        "name": "opmyoshi"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 5310324136,
-      "name": "park_cullen",
-      "displayName": "park_cullen"
+        "id": 994073815,
+        "name": "Pooksx10"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1364006688,
-      "name": "Valentin25313",
-      "displayName": "swenxyz"
+        "id": 89629630,
+        "name": "thomatys9110"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 630775569,
-      "name": "Vorpism",
-      "displayName": "Vorpism"
+        "id": 3254488477,
+        "name": "OnlyZnider"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 4303761327,
-      "name": "STONEY_NOTTZ",
-      "displayName": "STONEY_NOTTZ"
+        "id": 1221841742,
+        "name": "Fallenko_God"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 74378193,
-      "name": "donbear1",
-      "displayName": "Emity"
+        "id": 1039726785,
+        "name": "XavvenTheDruid"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1386548068,
-      "name": "Drag00n8",
-      "displayName": "Drag00n"
+        "id": 563273255,
+        "name": "ninjagofansag"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1363711943,
-      "name": "gumontop",
-      "displayName": "Glummyyy"
+        "id": 1215490854,
+        "name": "qeenrollaisanoob"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 4834390663,
-      "name": "Mercyeyee",
-      "displayName": "Mercyeyee"
+        "id": 1769174994,
+        "name": "DevTree_s"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 465545849,
-      "name": "UdayllI",
-      "displayName": "UdayllI"
+        "id": 4426362318,
+        "name": "Fyyyyyysh"
     },
     {
-      "hasVerifiedBadge": false,
+        "id": 1608012,
+        "name": "Teqnition"
+    },
+    {
+        "id": 1701760870,
+        "name": "RedFireRoblox_YT"
+    },
+    {
+        "id": 1363711943,
+        "name": "gumontop"
+    },
+    {
+        "id": 5719940369,
+        "name": "Arctodious"
+    },
+    {
+        "id": 387600604,
+        "name": "tomastomas747"
+    },
+    {
+        "id": 1637206409,
+        "name": "Iamabignoobforlife09"
+    },
+    {
+        "id": 1567745660,
+        "name": "ErasedNightmare"
+    },
+    {
+        "id": 1343778717,
+        "name": "Shadowseer66"
+    },
+    {
+        "id": 851188438,
+        "name": "TomuSpelar7777"
+    },
+    {
       "id": 1074446495,
-      "name": "RonaldoCr7Pro51",
-      "displayName": "AdnanPlayz"
+      "name": "RonaldoCr7Pro51"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 180754044,
-      "name": "kawabouga",
-      "displayName": "kawabouga"
+        "id": 535073200,
+        "name": "szimino"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 146371438,
-      "name": "zyolid",
-      "displayName": "zyolid"
+        "id": 3051686914,
+        "name": "angusismine"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 994073815,
-      "name": "Pooksx10",
-      "displayName": "Pooks"
+        "id": 2060725837,
+        "name": "gamer_boy292929"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 531403907,
-      "name": "leongh09",
-      "displayName": "Leonwantshoes"
+        "id": 1074240937,
+        "name": "omer876548"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1527453936,
-      "name": "Strekie",
-      "displayName": "Strekie"
+        "id": 2717676990,
+        "name": "h_om40"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 746620526,
-      "name": "EmperorLeg",
-      "displayName": "Leg"
+        "id": 465545849,
+        "name": "UdayllI"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 89629630,
-      "name": "thomatys9110",
-      "displayName": "SubscribeToLemdy"
+        "id": 1060480074,
+        "name": "listofmisery"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 2760858858,
-      "name": "1DankoGuy",
-      "displayName": "1Dankoguy"
+        "id": 1366415631,
+        "name": "Hapster247"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 2717676990,
-      "name": "h_om40",
-      "displayName": "Leah"
+        "id": 2760858858,
+        "name": "1DankoGuy"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 746867232,
-      "name": "OsoPunisher",
-      "displayName": "OsoPunisher"
+        "id": 1750597043,
+        "name": "gotejt5"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1637206409,
-      "name": "Iamabignoobforlife09",
-      "displayName": "Crypt_leo"
+        "id": 531403907,
+        "name": "leongh09"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 2918007897,
-      "name": "SeVonii",
-      "displayName": "SeVonii"
+        "id": 1089770566,
+        "name": "lowlowylowed"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 3051686914,
-      "name": "angusismine",
-      "displayName": "dimsimchim"
+        "id": 5351837159,
+        "name": "littlepp363"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1315256380,
-      "name": "opmyoshi",
-      "displayName": "proudchestmimicowner"
+        "id": 1644409087,
+        "name": "hikonan"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 1215490854,
-      "name": "qeenrollaisanoob",
-      "displayName": "PineconeForPres"
+        "id": 347237801,
+        "name": "Mythicalx_xMoose"
     },
     {
-      "hasVerifiedBadge": false,
-      "id": 5351837159,
-      "name": "littlepp363",
-      "displayName": "littlepp363"
-    },
-    {
-      "hasVerifiedBadge": false,
-      "id": 3254488477,
-      "name": "OnlyZnider",
-      "displayName": "OnlyZnider"
-    },
-    {
-      "hasVerifiedBadge": false,
-      "id": 2594214258,
-      "name": "Almuzze",
-      "displayName": "Almuzze"
-    },
-    {
-      "hasVerifiedBadge": false,
-      "id": 2396246362,
-      "name": "FennWenn",
-      "displayName": "Fenn"
-    },
-    {
-      "hasVerifiedBadge": false,
-      "id": 632814640,
-      "name": "NotDoritoDad",
-      "displayName": "DoritoDad"
-    },
-    {
-      "hasVerifiedBadge": false,
-      "id": 1644409087,
-      "name": "hikonan",
-      "displayName": "lil_colonial"
-    },
-    {
-      "hasVerifiedBadge": false,
-      "id": 92848453,
-      "name": "kittenvalcory",
-      "displayName": "ladderking"
-    },
-    {
-      "hasVerifiedBadge": false,
-      "id": 1366415631,
-      "name": "Hapster247",
-      "displayName": "Meh"
-    }],
+        "id": 2497845949,
+        "name": "VriBez"
+  }],
     sortByColumn: '', 
     sortDirection: 'asc' 
   },
