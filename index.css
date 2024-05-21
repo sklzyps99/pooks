@@ -432,7 +432,7 @@ th {
 .popup {
   display: none;
   position: fixed;
-  bottom: 55%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.8);
@@ -445,7 +445,7 @@ th {
 .footer-image {
   width: 100px;
   position: fixed;
-  bottom: 62%;
+  bottom: 0%;
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
@@ -498,38 +498,4 @@ th {
 
 .box__header-title {
   margin-top: 0px;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(15px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.overlay-content {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  background: linear-gradient(to right, #ff69b4, #87cefa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.overlay h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.overlay h2 {
-  font-size: 24px;
 }

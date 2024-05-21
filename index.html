@@ -10,97 +10,12 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <div class="overlay">
-    <div class="overlay-content">
-      <h2>Coming Soon</h2>
-      <h1>Pooks Battle 2.0</h1>
-    </div>
-  </div>
 <div class="container">
   <h1 id="title">Pooks Clan Battle</h1>
   <a id="updated">Last updated not now</a>
   <br>
   <a id="clan">Clan Rank: #99 | Clan Points: 99</a>
   <br>
-  <table id="overlayzero">
-    <thead>
-    <tr>
-      <th>Quest Challenge</th>
-      <th>Progress</th>
-      <th>Stars</th>
-    </tr>
-    </thead>
-    <tbody id="questsData">
-    <tr>
-      <td id="qc0">Fix 99 Bugs</td>
-      <td id="p0">0/99</td>
-      <td>
-        <span id="starContainer0">
-          <span id="s0">100</span>
-          <img src="star.png" alt="Star" class="star-icon">
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="progress-container">
-          <div class="progress-bar" id="pb0"></div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td id="qc1">Fix 99 Bugs</td>
-      <td id="p1">0/99</td>
-      <td>
-        <span id="starContainer1">
-          <span id="s1">200</span>
-          <img src="star.png" alt="Star" class="star-icon">
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="progress-container">
-          <div class="progress-bar" id="pb1"></div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td id="qc2">Fix 99 Bugs</td>
-      <td id="p2">0/99</td>
-      <td>
-        <span id="starContainer2">
-          <span id="s2">300</span>
-          <img src="star.png" alt="Star" class="star-icon">
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="progress-container">
-          <div class="progress-bar" id="pb2"></div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td id="qc3">Fix 99 Bugs</td>
-      <td id="p3">0/99</td>
-      <td>
-        <span id="starContainer3">
-          <span id="s3">400</span>
-          <img src="star.png" alt="Star" class="star-icon">
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <div class="progress-container">
-          <div class="progress-bar" id="pb3"></div>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
 </div>
 
 <div class="stats-container">
@@ -123,7 +38,7 @@
           <div class="stats__amount">Placeholder</div>
         </div>
         <div class="stats__item">
-          <div class="stats__caption">Least Earner</div>
+          <div class="stats__caption">Biggest Slacker</div>
           <div class="stats__amount">Placeholder</div>
           </div>
         </div>
@@ -133,9 +48,6 @@
 </div>
 
 <div id="app">
-  <div>
-    <a>FULL FUNCTIONALITY COMING NEXT UPDATE</a>
-  </div>
   <div class="search">
       <input type="text" placeholder="Search Clan" v-model="searchQuery">
   </div>
@@ -204,9 +116,6 @@ new Vue({
 </script>
 
 <div id="memberList">
-  <div>
-    <a>FULL FUNCTIONALITY COMING NEXT UPDATE</a>
-  </div>
   <div class="search">
     <input type="text" placeholder="Search Members" v-model="searchQuery">
   </div>
