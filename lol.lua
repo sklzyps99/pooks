@@ -54,7 +54,7 @@ local eggs = {
     "man-egg",
     -- "rainbow-egg",
     -- "void-egg",
-    "nightmare-egg",
+    -- "nightmare-egg",
     "event-1",
     "event-2",
     "event-3"
